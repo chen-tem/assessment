@@ -5,7 +5,8 @@ namespace Assessment.Interfaces
 {
     public interface IAssessmentService
     {
-        Task<IActionResult> GetInformationById(int id);
-        Task<IActionResult> UpdateInformation(int id, [FromBody] Information model);
+         Task<Information?> GetByIdAsync(int id);
+         Task<bool> UpdateAsync(int id, Information updated);
     }
 }
+
