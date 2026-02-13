@@ -24,3 +24,16 @@ Technologies Used:
 - SQL queries via SqlConnection/SqlCommand
 - 3rd party API: https://jsonplaceholder.typicode.com/users/{id}
 - API key (if required) stored in environment variable: THIRD_PARTY_API_KEY
+Configuration:
+--------------
+- Set your SQL Server connection string in appsettings.json under ConnectionStrings:DefaultConnection.
+- If the 3rd party API requires an API key, set the environment variable 'THIRD_PARTY_API_KEY'.
+
+Running the Project:
+--------------------
+- Build and run the project using Visual Studio or 'dotnet run'.
+- Use Swagger or HTTP tools to test the endpoints.
+
+Database Setup:
+---------------
+- Create the database and table using the following SQL script:
