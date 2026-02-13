@@ -110,5 +110,34 @@ namespace Assessment.Services
                 return rows > 0;
             }
         }
+
+        /// <summary>
+        /// Get all Information records from the database.
+        /// </summary>
+        public async Task<List<InformationDto>> GetAllAsync()
+        {
+            var result = new List<InformationDto>();
+            using (var conn = new SqlConnection(_connectionString))
+            {
+                await conn.OpenAsync();
+                var cmd = new SqlCommand("SELECT UserId, Name, Email, Date FROM Information", conn);
+                using (var reader = await cmd.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        var info = new InformationDto
+                        {
+                            UserId = reader.GetInt32(0),
+                            Name = reader.IsDBNull(1) ? null : reader.GetString(1),
+                            Email = reader.IsDBNull(2) ? null : reader.GetString(2),
+                            Date = reader.GetDateTime(3)
+                        };
+                        result.Add(info);
+                    }
+                }
+            }
+            return result;
+        }
+
     }
 }
