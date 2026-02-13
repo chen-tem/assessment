@@ -47,7 +47,7 @@ namespace Assessment.Controllers
         /// <param name="model">Updated Information</param>
         /// <returns>Result of update</returns>
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateInformation(int id, [FromBody] Information model)
+        public async Task<IActionResult> UpdateInformation(int id, [FromBody] InformationDto model)
         {
             if (model == null)
                 return BadRequest("Invalid data");
@@ -66,4 +66,5 @@ namespace Assessment.Controllers
         }
 
     }
+
 }
