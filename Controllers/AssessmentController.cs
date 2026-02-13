@@ -65,6 +65,25 @@ namespace Assessment.Controllers
             }
         }
 
+        /// <summary>
+        /// Get all Information records.
+        /// </summary>
+        /// <returns>List of Information records</returns>
+        [HttpGet]
+        public async Task<IActionResult> GetAllInformation()
+        {
+           try
+           {
+                var infoList = await _assessmentService.GetAllAsync();
+                return Ok(infoList);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving all information records");
+                return StatusCode(500, "Internal server error");
+            }
+        }
     }
 
 }
+
