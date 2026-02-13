@@ -8,5 +8,7 @@ namespace Assessment.Interfaces
     {
         Task<InformationDto?> GetByIdAsync(int id);
         Task<bool> UpdateAsync(int id, InformationDto updated);
+        Task<List<InformationDto>> GetAllAsync();
     }
 }
+
