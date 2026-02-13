@@ -13,7 +13,7 @@ namespace Assessment.Services
         private readonly string _connectionString;
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public AssessmentService(ILogger<AssessmentService> logger, string connectionString, IHttpClientFactory httpClientFactory)
+        public AssessmentService(ILogger<AssessmentService> logger)
         {
             _logger = logger;
         }
@@ -141,3 +141,4 @@ namespace Assessment.Services
 
     }
 }
+
