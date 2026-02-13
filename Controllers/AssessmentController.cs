@@ -1,4 +1,5 @@
 ﻿using Assessment.Interfaces;
+using Assessment.Modals;
 using Assessment.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
@@ -64,18 +65,13 @@ namespace Assessment.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
-
-        /// <summary>
-        /// Get all Information records.
-        /// </summary>
-        /// <returns>List of Information records</returns>
-        [HttpGet]
+        [HttpGet("all")]
         public async Task<IActionResult> GetAllInformation()
         {
-           try
-           {
-                var infoList = await _assessmentService.GetAllAsync();
-                return Ok(infoList);
+            try
+            {
+                var allInfo = await _assessmentService.GetAllAsync();
+                return Ok(allInfo);
             }
             catch (Exception ex)
             {
@@ -83,7 +79,6 @@ namespace Assessment.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
     }
-
 }
-
